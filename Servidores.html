@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf4ff">
+  <title>Servidores | Pearlhost</title>
+  <script>
+    if (localStorage.getItem("dashboard-theme") === "dark") {
+      document.documentElement.dataset.theme = "dark";
+      document.querySelector('meta[name="theme-color"]').content = "#17131d";
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Dashboard.css">
+  <link rel="stylesheet" href="Servidores.css">
+  <link rel="stylesheet" href="Añadir_Servidor.css">
+  <link rel="stylesheet" href="Cancelar_Servidor.css">
+</head>
+<body>
+  <div class="app">
+    <button class="sidebar-backdrop" id="sidebar-backdrop" type="button" aria-label="Cerrar menú" hidden></button>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand-row">
+        <a class="brand" href="Dashboard.html" aria-label="Pearlhost, inicio">
+          <span class="brand-name">Pearlhost</span>
+        </a>
+        <button class="menu-toggle sidebar-menu-toggle" id="sidebar-menu-toggle" type="button" aria-label="Cerrar menú" aria-expanded="true" aria-controls="sidebar">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div class="nav-label">ESPACIO PERSONAL</div>
+      <nav class="navigation" aria-label="Navegación principal">
+        <a class="nav-link" href="Dashboard.html" title="Dashboard">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link active" href="Servidores.html" aria-current="page" title="Servidores">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/></svg>
+          <span>Servidores</span>
+        </a>
+        <button class="nav-link settings-link" id="open-settings" type="button" aria-haspopup="dialog" title="Configuración">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1A1.7 1.7 0 0 0 4.2 12H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/></svg>
+          <span>Configuración</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="profile-avatar">PM</div>
+        <div class="profile-copy"><strong>Perla Ramirez</strong><span>Plan personal</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-leading">
+          <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="breadcrumbs"><a href="Dashboard.html">Espacio personal</a><span class="crumb-divider">/</span><strong>Servidores</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false">
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb">
+                <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+                <svg class="moon-icon" viewBox="0 0 24 24"><path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"/></svg>
+              </span>
+            </span>
+            <span class="sr-only">Cambiar tema</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="server-overview" aria-labelledby="page-title">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">INFRAESTRUCTURA</p>
+              <h1 id="page-title">Servidores</h1>
+              <p class="page-subtitle">Estado y recursos de tus instancias.</p>
+            </div>
+            <button class="primary-button" id="open-add-server" type="button" aria-haspopup="dialog" aria-controls="add-server-drawer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              Añadir servidor
+            </button>
+          </div>
+        </section>
+
+        <section class="panel server-manager" aria-labelledby="servers-title">
+          <div class="server-manager-heading">
+            <div>
+              <h2 id="servers-title">Mis servidores</h2>
+              <p>Estado y recursos de tus instancias.</p>
+            </div>
+          </div>
+          <div class="server-table-wrap">
+            <table class="server-table manage-table">
+              <thead>
+                <tr><th>Servidor</th><th>Dirección IP</th><th>Estado</th><th>CPU</th><th>RAM</th><th>Acciones</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="server-name"><span class="server-avatar violet">DB</span><span><strong>Base de datos</strong><small>Producción</small></span></span></td><td>192.168.1.10</td><td><span class="server-status online"><i></i>En línea</span></td><td><span class="usage"><span><i style="width: 62%"></i></span>62%</span></td><td><span class="usage"><span><i style="width: 74%"></i></span>74%</span></td><td class="actions-cell"><div class="row-actions"><button class="action-button configure-server" type="button">Configurar</button><button class="action-button delete-server" type="button">Eliminar</button></div></td></tr>
+                <tr><td><span class="server-name"><span class="server-avatar blue">SW</span><span><strong>Servidor web</strong><small>Producción</small></span></span></td><td>192.168.1.11</td><td><span class="server-status online"><i></i>En línea</span></td><td><span class="usage"><span><i style="width: 38%"></i></span>38%</span></td><td><span class="usage"><span><i style="width: 56%"></i></span>56%</span></td><td class="actions-cell"><div class="row-actions"><button class="action-button configure-server" type="button">Configurar</button><button class="action-button delete-server" type="button">Eliminar</button></div></td></tr>
+                <tr><td><span class="server-name"><span class="server-avatar green">AC</span><span><strong>Almacenamiento</strong><small>Desarrollo</small></span></span></td><td>192.168.1.12</td><td><span class="server-status online"><i></i>En línea</span></td><td><span class="usage"><span><i style="width: 21%"></i></span>21%</span></td><td><span class="usage"><span><i style="width: 43%"></i></span>43%</span></td><td class="actions-cell"><div class="row-actions"><button class="action-button configure-server" type="button">Configurar</button><button class="action-button delete-server" type="button">Eliminar</button></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="add-server-drawer" id="add-server-drawer" aria-labelledby="add-server-title">
+    <header class="add-server-heading">
+      <div>
+        <p class="eyebrow" id="drawer-eyebrow">NUEVA INSTANCIA</p>
+        <h2 id="add-server-title">Añadir servidor</h2>
+        <p class="page-subtitle" id="drawer-subtitle">Ajusta los parámetros de tu instancia.</p>
+      </div>
+      <button class="drawer-close" id="close-add-server" type="button" aria-label="Cerrar panel">×</button>
+    </header>
+    <div class="add-server-drawer-content">
+      <div class="selected-server">
+        <span class="selected-server-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/></svg>
+        </span>
+        <span><strong id="selected-server-title">Configuración del servidor</strong><small id="selected-server-description">Completa estos datos para tu nueva instancia</small></span>
+      </div>
+      <div class="add-server-form">
+        <label class="form-field form-field-wide">Nombre del servidor
+          <input id="drawer-server-name" type="text" placeholder="Ej. Servidor web" disabled>
+        </label>
+        <label class="form-field form-field-wide">Dirección IP
+          <input id="drawer-server-ip" type="text" placeholder="192.168.1.20" disabled>
+        </label>
+        <label class="form-field form-field-wide">Descripción
+          <textarea id="drawer-server-description" rows="3" placeholder="Describe brevemente para qué se usará este servidor" disabled></textarea>
+        </label>
+        <label class="form-field form-field-wide">Entorno
+          <select id="drawer-server-environment" disabled><option value="" selected>Selecciona un entorno</option><option>Producción</option><option>Desarrollo</option><option>Pruebas</option></select>
+        </label>
+        <div class="maintenance-settings" id="maintenance-settings" hidden>
+          <label class="form-field form-field-wide">Fecha de mantenimiento
+            <input id="drawer-server-maintenance-date" type="date" disabled>
+          </label>
+          <div class="maintenance-alert-setting">
+            <span class="maintenance-alert-copy">
+              <strong>Activar alertas</strong>
+              <small>Recibir avisos de mantenimiento</small>
+            </span>
+            <label class="maintenance-alert-switch">
+              <input id="drawer-server-maintenance-alerts" type="checkbox" role="switch" aria-label="Activar alertas de mantenimiento" disabled>
+              <span class="maintenance-alert-track" aria-hidden="true"></span>
+            </label>
+          </div>
+        </div>
+        <div class="form-field-row">
+          <label class="form-field">CPU (núcleos)
+            <input id="drawer-server-cpu" type="text" placeholder="Sin datos" disabled>
+          </label>
+          <label class="form-field">Memoria RAM
+            <input id="drawer-server-ram" type="text" placeholder="Sin datos" disabled>
+          </label>
+        </div>
+      </div>
+    </div>
+    <footer class="add-server-actions">
+      <button class="secondary-button" id="cancel-add-server" type="button">Cancelar</button>
+      <button class="primary-button save-placeholder" id="save-server" type="button" aria-live="polite">
+        <span class="save-spinner" aria-hidden="true" hidden></span>
+        <span class="save-server-label">Añadir servidor</span>
+      </button>
+    </footer>
+  </dialog>
+  <dialog class="delete-server-dialog" id="delete-server-dialog" aria-labelledby="delete-server-title">
+    <div class="delete-server-icon" aria-hidden="true">!</div>
+    <h2 id="delete-server-title">¿Eliminar servidor?</h2>
+    <p id="delete-server-message">
+      <span class="delete-warning-copy">¡Atención! Esta acción es permanente y no se puede deshacer.</span>
+      <span class="delete-server-copy">Se eliminará este servidor:</span>
+      <strong id="delete-server-name"></strong>
+    </p>
+    <p id="delete-success-message" hidden>Eliminado correctamente.</p>
+    <div class="delete-server-actions">
+      <button class="secondary-button" id="cancel-delete-server" type="button">Cancelar</button>
+      <button class="delete-confirm-button" id="confirm-delete-server" type="button" aria-live="polite">
+        <span class="save-spinner" aria-hidden="true" hidden></span>
+        <span class="delete-button-label">Sí, eliminar</span>
+      </button>
+    </div>
+  </dialog>
+
+  <dialog class="server-dialog settings-dialog" id="settings-dialog" aria-labelledby="settings-title">
+    <form id="settings-form">
+      <div class="dialog-heading">
+        <div><p class="eyebrow">PREFERENCIAS</p><h2 id="settings-title">Configuración</h2></div>
+        <button class="dialog-close" id="close-settings" type="button" aria-label="Cerrar">×</button>
+      </div>
+      <section class="settings-section" aria-labelledby="profile-section-title">
+        <h3 id="profile-section-title">Perfil de usuario</h3>
+        <div class="settings-profile-fields">
+          <label class="form-field">Nombre
+            <input type="text" value="Perla Ramirez" disabled>
+          </label>
+          <label class="form-field">Correo
+            <input type="email" placeholder="Correo electrónico" disabled>
+          </label>
+        </div>
+      </section>
+      <section class="settings-section preferences-section" aria-labelledby="preferences-section-title">
+        <h3 id="preferences-section-title">Preferencias</h3>
+        <label class="form-field">Modo oscuro
+          <select name="theme">
+            <option value="light">Desactivado</option>
+            <option value="dark">Activado</option>
+          </select>
+        </label>
+      </section>
+      <div class="dialog-actions">
+        <button class="secondary-button" id="cancel-settings" type="button">Cancelar</button>
+        <button class="primary-button" id="save-settings" type="submit" aria-live="polite">
+          <span class="save-spinner" aria-hidden="true" hidden></span>
+          <span class="save-button-label">Guardar preferencias</span>
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

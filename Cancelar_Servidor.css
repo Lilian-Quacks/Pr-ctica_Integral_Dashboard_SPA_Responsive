@@ -1,0 +1,227 @@
+.delete-server-dialog {
+  position: relative;
+  box-sizing: border-box;
+  width: min(520px, calc(100vw - 28px));
+  height: 332px;
+  max-height: calc(100vh - 28px);
+  padding: 28px;
+  border: 1px solid rgba(146, 97, 166, 0.3);
+  border-radius: 16px;
+  background: #e7cdfd;
+  color: #2d2d2d;
+  box-shadow: 0 24px 80px rgba(40, 26, 52, 0.25);
+}
+
+.delete-server-dialog::backdrop {
+  background: rgba(30, 22, 38, 0.48);
+  backdrop-filter: blur(3px);
+}
+
+.delete-server-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 10px;
+  background: #8d6099;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.delete-server-dialog h2 {
+  margin: 20px 0 11px;
+  color: #3c3c3c;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.delete-server-dialog p {
+  margin: 0;
+  color: #2d2d2d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.delete-server-dialog .delete-warning-copy,
+.delete-server-dialog .delete-server-copy,
+.delete-server-dialog p strong {
+  display: block;
+}
+
+.delete-server-dialog .delete-warning-copy {
+  margin-bottom: 8px;
+  color: #8f3543;
+  font-weight: 600;
+}
+
+.delete-server-dialog .delete-server-copy {
+  margin-bottom: 3px;
+}
+
+.delete-server-dialog p strong {
+  color: inherit;
+  font-weight: 700;
+}
+
+.delete-server-actions {
+  position: absolute;
+  right: 28px;
+  bottom: 26px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: calc(100% - 56px);
+}
+
+.delete-server-actions button {
+  display: grid;
+  height: 42px;
+  place-items: center;
+  padding: 0;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.delete-server-actions .secondary-button {
+  width: 112px;
+  border: 0;
+  background: #d3bbed;
+  color: #3c3c3c;
+  font-weight: 500;
+}
+
+.delete-server-actions .delete-confirm-button {
+  width: 136px;
+  border: 0;
+  background: rgba(188, 67, 79, 0.89);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.delete-server-actions button:not(:disabled) {
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.delete-server-actions button:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+.delete-server-actions .secondary-button:not(:disabled):hover {
+  background: #c3a9dc;
+}
+
+.delete-server-actions .delete-confirm-button:not(:disabled):hover {
+  background: #a93643;
+}
+
+.delete-server-actions button:not(:disabled):active {
+  transform: translateY(0);
+}
+
+.delete-server-actions .delete-confirm-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+:root[data-theme="dark"] .delete-server-dialog {
+  border-color: rgba(192, 166, 214, 0.28);
+  background: #342a40;
+  color: #eee7f5;
+}
+
+:root[data-theme="dark"] .delete-server-dialog h2,
+:root[data-theme="dark"] .delete-server-dialog p {
+  color: #eee7f5;
+}
+
+:root[data-theme="dark"] .delete-server-dialog .delete-warning-copy {
+  color: #ff9aa7;
+}
+
+:root[data-theme="dark"] .delete-server-actions .secondary-button {
+  border: 1px solid rgba(192, 166, 214, 0.22);
+  background: #49345d;
+  color: #eee7f5;
+}
+
+:root[data-theme="dark"] .delete-server-actions .secondary-button:not(:disabled):hover {
+  background: #5d4275;
+}
+
+@media (max-width: 560px) {
+  .delete-server-dialog {
+    width: min(390px, calc(100vw - 32px));
+    height: fit-content;
+    min-height: 0;
+    max-height: calc(100dvh - 32px);
+    padding: 18px;
+    overflow-y: auto;
+  }
+
+  .delete-server-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .delete-server-dialog h2 {
+    margin: 14px 0 7px;
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .delete-server-dialog p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .delete-server-dialog .delete-warning-copy {
+    margin-bottom: 6px;
+  }
+
+  .delete-server-actions {
+    position: static;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 18px;
+    gap: 8px;
+  }
+
+  .delete-server-actions button {
+    height: 38px;
+    font-size: 12px;
+  }
+
+  .delete-server-actions .secondary-button {
+    width: 100px;
+  }
+
+  .delete-server-actions .delete-confirm-button {
+    width: 120px;
+  }
+}
+
+@media (max-width: 380px) {
+  .delete-server-dialog {
+    width: calc(100vw - 24px);
+    padding: 14px;
+  }
+
+  .delete-server-dialog h2 {
+    font-size: 18px;
+  }
+
+  .delete-server-dialog p {
+    font-size: 12px;
+  }
+}

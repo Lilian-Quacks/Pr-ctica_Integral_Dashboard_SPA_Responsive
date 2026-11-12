@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf4ff">
+  <title>Dashboard | Monitor de servidores</title>
+  <script>
+    if (localStorage.getItem("dashboard-theme") === "dark") {
+      document.documentElement.dataset.theme = "dark";
+      document.querySelector('meta[name="theme-color"]').content = "#17131d";
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Dashboard.css">
+  <link rel="stylesheet" href="Servidores.css">
+</head>
+<body>
+  <div class="app">
+    <button class="sidebar-backdrop" id="sidebar-backdrop" type="button" aria-label="Cerrar menú" hidden></button>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand-row">
+        <a class="brand" href="#" aria-label="Inicio">
+          <span class="brand-name">Pearlhost</span>
+        </a>
+        <button class="menu-toggle sidebar-menu-toggle" id="sidebar-menu-toggle" type="button" aria-label="Cerrar menú" aria-expanded="true" aria-controls="sidebar">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div class="nav-label">ESPACIO PERSONAL</div>
+      <nav class="navigation" aria-label="Navegación principal">
+        <a class="nav-link active" href="#resumen" aria-current="page" title="Dashboard">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link" href="Servidores.html" title="Servidores">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/></svg>
+          <span>Servidores</span>
+        </a>
+        <button class="nav-link settings-link" id="open-settings" type="button" aria-haspopup="dialog" title="Configuración">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1A1.7 1.7 0 0 0 4.2 12H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/></svg>
+          <span>Configuración</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="profile-avatar">PM</div>
+        <div class="profile-copy"><strong>Perla Ramirez</strong><span>Plan personal</span></div>
+        <button class="more-button" type="button" aria-label="Más opciones">···</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-leading">
+          <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="breadcrumbs"><span>Espacio personal</span><span class="crumb-divider">/</span><strong>Dashboard</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <span class="system-status"><span class="status-dot"></span>Todos los sistemas operativos</span>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false">
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb">
+                <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+                <svg class="moon-icon" viewBox="0 0 24 24"><path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"/></svg>
+              </span>
+            </span>
+            <span class="sr-only">Cambiar tema</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="overview" id="resumen" aria-labelledby="page-title">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">MI ESPACIO</p>
+              <h1 id="page-title">Vista general</h1>
+              <p class="page-subtitle">Monitorea el estado y rendimiento de tu infraestructura.</p>
+            </div>
+          </div>
+
+          <div class="metric-grid">
+            <article class="metric-card cpu-card">
+              <div class="metric-top"><span class="metric-label">Uso de CPU</span><span class="metric-icon cpu-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 9h6v6H9zM9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/></svg></span></div>
+              <div class="metric-value">64.2<span>%</span></div>
+              <div class="metric-foot"><span class="trend up">↗ 4.8%</span><span>vs. semana pasada</span><div class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            </article>
+            <article class="metric-card ram-card">
+              <div class="metric-top"><span class="metric-label">Memoria RAM</span><span class="metric-icon ram-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 10v4m4-4v4m4-4v4m4-4v4M7 17v3m5-3v3m5-3v3"/></svg></span></div>
+              <div class="metric-value">72<span>%</span></div>
+              <div class="metric-foot"><span class="trend down">↘ 2.1%</span><span>vs. semana pasada</span><div class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            </article>
+            <article class="metric-card servers-card">
+              <div class="metric-top"><span class="metric-label">Servidores activos</span><span class="metric-icon server-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/><path d="M7 7h.01M7 17h.01M11 7h6m-6 10h6"/></svg></span></div>
+              <div class="metric-value">3<span class="metric-unit">/ 4</span></div>
+              <div class="metric-foot"><span class="trend neutral">75%</span><span>de capacidad disponible</span><div class="capacity-bar"><span></span></div></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="alerts panel" aria-labelledby="alerts-title">
+          <div class="section-title-row">
+            <div><h2 id="alerts-title">Alertas</h2><p>Eventos recientes de tus servidores</p></div>
+          </div>
+          <div class="alert-table-wrap">
+            <table class="alert-table">
+              <thead><tr><th>Severidad</th><th>Evento</th><th>Servidor</th><th>Fecha y hora</th></tr></thead>
+              <tbody><tr><td colspan="4"><div class="empty-state"><span class="empty-icon">✓</span><span><strong>Todo está en orden</strong><small>No hay alertas activas por el momento.</small></span></div></td></tr></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel traffic-panel" aria-labelledby="traffic-title">
+          <div class="panel-heading">
+            <div><h2 id="traffic-title">Tráfico de red</h2><p>Uso de ancho de banda durante el día</p></div>
+            <div class="chart-controls">
+              <div class="chart-legend"><span><i class="legend-dot inbound"></i>Entrada</span><span><i class="legend-dot outbound"></i>Salida</span></div>
+              <label class="period-select"><span class="sr-only">Periodo del gráfico</span><select><option>Últimas 24 horas</option><option>Últimos 7 días</option><option>Últimos 30 días</option></select></label>
+            </div>
+          </div>
+          <div class="chart" role="img" aria-label="Gráfico de tráfico de red: entrada y salida durante las últimas 24 horas">
+            <div class="chart-y-labels"><span>100</span><span>75</span><span>50</span><span>25</span><span>0</span></div>
+            <svg class="chart-svg" viewBox="0 0 1000 180" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="inbound-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#709aff" stop-opacity=".24"/><stop offset="1" stop-color="#709aff" stop-opacity="0"/></linearGradient><linearGradient id="outbound-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5ed3ab" stop-opacity=".2"/><stop offset="1" stop-color="#5ed3ab" stop-opacity="0"/></linearGradient></defs>
+              <path class="chart-area inbound-area" d="M0 126 C45 119 56 77 103 91 S164 122 205 88 S271 105 307 69 S370 96 410 81 S472 49 512 69 S572 102 615 77 S676 87 718 48 S778 70 819 52 S881 76 922 38 S972 52 1000 24 V180 H0Z"/>
+              <path class="chart-area outbound-area" d="M0 145 C44 137 61 120 103 133 S162 146 205 120 S264 136 307 112 S369 128 410 115 S472 95 512 111 S571 131 615 108 S677 123 718 94 S779 111 819 90 S881 116 922 81 S969 92 1000 68 V180 H0Z"/>
+              <path class="chart-line inbound-line" d="M0 126 C45 119 56 77 103 91 S164 122 205 88 S271 105 307 69 S370 96 410 81 S472 49 512 69 S572 102 615 77 S676 87 718 48 S778 70 819 52 S881 76 922 38 S972 52 1000 24"/>
+              <path class="chart-line outbound-line" d="M0 145 C44 137 61 120 103 133 S162 146 205 120 S264 136 307 112 S369 128 410 115 S472 95 512 111 S571 131 615 108 S677 123 718 94 S779 111 819 90 S881 116 922 81 S969 92 1000 68"/>
+            </svg>
+            <div class="chart-x-labels"><span>00:00</span><span>04:00</span><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span><span>23:59</span></div>
+          </div>
+          <div class="chart-unit">Mb/s</div>
+        </section>
+
+        <section class="panel servers-panel" id="servidores" aria-labelledby="servers-title">
+          <div class="section-title-row">
+            <div><h2 id="servers-title">Mis servidores</h2><p>Estado y recursos de tus instancias</p></div>
+          </div>
+          <div class="server-table-wrap">
+            <table class="server-table">
+              <thead><tr><th>Servidor</th><th>Dirección IP</th><th>Estado</th><th>CPU</th><th>RAM</th></tr></thead>
+              <tbody>
+                <tr><td><span class="server-name"><span class="server-avatar violet">DB</span><span><strong>Base de datos</strong><small>Producción</small></span></span></td><td>192.168.1.10</td><td><span class="server-status online"><i></i>En línea</span></td><td><span class="usage"><span><i style="width: 62%"></i></span>62%</span></td><td><span class="usage"><span><i style="width: 74%"></i></span>74%</span></td></tr>
+                <tr><td><span class="server-name"><span class="server-avatar blue">AP</span><span><strong>Servidor web</strong><small>Producción</small></span></span></td><td>192.168.1.11</td><td><span class="server-status online"><i></i>En línea</span></td><td><span class="usage"><span><i style="width: 38%"></i></span>38%</span></td><td><span class="usage"><span><i style="width: 56%"></i></span>56%</span></td></tr>
+                <tr><td><span class="server-name"><span class="server-avatar green">AC</span><span><strong>Almacenamiento</strong><small>Desarrollo</small></span></span></td><td>192.168.1.12</td><td><span class="server-status online"><i></i>En línea</span></td><td><span class="usage"><span><i style="width: 21%"></i></span>21%</span></td><td><span class="usage"><span><i style="width: 43%"></i></span>43%</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <footer class="footer">© Pearlhost · Panel de monitoreo</footer>
+      </div>
+    </main>
+  </div>
+  <dialog class="server-dialog settings-dialog" id="settings-dialog" aria-labelledby="settings-title">
+    <form id="settings-form">
+      <div class="dialog-heading">
+        <div><p class="eyebrow">PREFERENCIAS</p><h2 id="settings-title">Configuración</h2></div>
+        <button class="dialog-close" id="close-settings" type="button" aria-label="Cerrar">×</button>
+      </div>
+      <section class="settings-section" aria-labelledby="profile-section-title">
+        <h3 id="profile-section-title">Perfil de usuario</h3>
+        <div class="settings-profile-fields">
+          <label class="form-field">Nombre
+            <input type="text" value="Perla Ramirez" disabled>
+          </label>
+          <label class="form-field">Correo
+            <input type="email" placeholder="Correo electrónico" disabled>
+          </label>
+        </div>
+      </section>
+      <section class="settings-section preferences-section" aria-labelledby="preferences-section-title">
+        <h3 id="preferences-section-title">Preferencias</h3>
+        <label class="form-field">Modo oscuro
+          <select name="theme">
+            <option value="light">Desactivado</option>
+            <option value="dark">Activado</option>
+          </select>
+        </label>
+      </section>
+      <div class="dialog-actions">
+        <button class="secondary-button" id="cancel-settings" type="button">Cancelar</button>
+        <button class="primary-button" id="save-settings" type="submit" aria-live="polite">
+          <span class="save-spinner" aria-hidden="true" hidden></span>
+          <span class="save-button-label">Guardar preferencias</span>
+        </button>
+      </div>
+    </form>
+  </dialog>
+  <script src="script.js"></script>
+</body>
+</html>
